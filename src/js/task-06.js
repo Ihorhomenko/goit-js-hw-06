@@ -5,9 +5,12 @@ dataInput.addEventListener("blur", checkNumberContentUInput);
 
 function checkNumberContentUInput(event) {
   console.log(event.currentTarget.value.length);
-  if (dataInputLength === event.currentTarget.value.length) {
-    dataInput.classList.add("valid");
-  } else {
+  if (dataInputLength !== event.currentTarget.value.length) {
     dataInput.classList.add("invalid");
+  } else {
+    if (dataInput.classList.contains("invalid")) {
+      dataInput.classList.remove("invalid");
+    }
+    dataInput.classList.add("valid");
   }
 }
